@@ -46,6 +46,7 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
     const parsed= await submitOrder.json()
     console.log(parsed)
     if(submitOrder.ok){
+      console.log("orderSubmitter",parsed)
         onSubmit()
     }
 }
