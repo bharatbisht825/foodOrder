@@ -5,7 +5,7 @@ const Orders = () => {
   const [role,setRole]=useState("")
   useEffect(()=>{getOrder()},[])
   async function getOrder(params) {
-    const orderData=await fetch("http://localhost:5000/getOrder",{credentials:"include"})
+    const orderData=await fetch("https://foodorder-8uv3.onrender.com/getOrder",{credentials:"include"})
     const parsedData= await orderData.json()
     console.log(parsedData)
     setOrders(parsedData.orderData)
@@ -14,7 +14,7 @@ const Orders = () => {
 
 
   async function delOrder(_id) {
-    const deleteOrder=await fetch("http://localhost:5000/delOrder",{
+    const deleteOrder=await fetch("https://foodorder-8uv3.onrender.com/delOrder",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

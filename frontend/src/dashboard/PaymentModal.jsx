@@ -13,7 +13,7 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
   ]);
 
   const orderQuee= async (type)=>{
-    const submitOrder=fetch("http://localhost:5000/orderQuee",{
+    const submitOrder=fetch("https://foodorder-8uv3.onrender.com/orderQuee",{
         method:"POST",
         credentials:"include",
         headers:{
@@ -31,7 +31,7 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
   }
 
   const orderCart= async (total,type)=>{
-    const submitOrder=fetch("http://localhost:5000/order",{
+    const submitOrder=fetch("https://foodorder-8uv3.onrender.com/order",{
         method:"POST",
         credentials:"include",
         headers:{

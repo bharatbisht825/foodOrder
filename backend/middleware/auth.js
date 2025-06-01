@@ -4,7 +4,7 @@ async function authToken(req,res,next){
 
     try {
             const token=req.cookies.token
-            console.log(token)
+            console.log("the foloowing is the token",token)
             const decoded=jwt.verify(token,"bharat")
             console.log(decoded)
             if(decoded){

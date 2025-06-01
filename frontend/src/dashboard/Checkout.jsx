@@ -16,7 +16,7 @@ function Checkout() {
 }, []);
 
   async function getCart() {
-    const reciveData = await fetch("http://localhost:5000/getCart", { credentials: "include" });
+    const reciveData = await fetch("https://foodorder-8uv3.onrender.com/getCart", { credentials: "include" });
     const response = await reciveData.json();
     setCheckout(response.result);
     setRole(response.role)
@@ -31,7 +31,7 @@ const gstAmount = checkout.reduce((acc, order) => acc + (Number(order.qty) * Num
 
   async function addToQuee(){
        const obj= {orderFor:name, cart:checkout, total:totalAmount, address:address }
-       const sendToQuee= await fetch("http://localhost:5000/addQuee",{
+       const sendToQuee= await fetch("https://foodorder-8uv3.onrender.com/addQuee",{
         method:"POST",
         credentials:"include",
         headers:{

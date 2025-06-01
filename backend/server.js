@@ -22,7 +22,9 @@ connectDb();
 
 
 app.get("/",(req,res)=>{
+    
     res.send("hey")
+
 })
 
 app.listen(PORT,()=>{
