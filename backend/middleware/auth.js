@@ -3,6 +3,7 @@ const jwt=require("jsonwebtoken")
 async function authToken(req,res,next){
 
     try {
+            console.log("Cookies:", req.cookies);
             const token=req.cookies.token
             console.log("the foloowing is the token",token)
             const decoded=jwt.verify(token,"bharat")
