@@ -31,7 +31,7 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
   }
 
   const orderCart= async (total,type)=>{
-    const submitOrder=fetch("https://foodorder-production-7583.up.railway.app//order",{
+    const submitOrder=fetch("https://foodorder-production-7583.up.railway.app/order",{
         method:"POST",
         credentials:"include",
         headers:{
