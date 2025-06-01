@@ -22,8 +22,10 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
         body:JSON.stringify({paymentMethod:type,queeId:queeId})
         
     })
-    if(submitOrder){
-        console.log ("order submiteed from quee")
+    const parsed= await submitOrder.json()
+    console.log(parsed)
+    if(submitOrder.ok){
+        onSubmit()
     }
 
 
@@ -41,8 +43,10 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
         body:JSON.stringify({total,paymentMethod:type,to})
         
     })
+    const parsed= await submitOrder.json()
+    console.log(parsed)
     if(submitOrder.ok){
-        alert ("order submiteed")
+        onSubmit()
     }
 }
 

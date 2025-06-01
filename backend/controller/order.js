@@ -20,6 +20,7 @@ const submitOrder=async(req,res)=>{
         ) 
         if(ordered){
             const deleted=await checkout.deleteOne({email});
+            res.status(200).json({"message":"order sucessfully submitted"})
             console.log("we have sucesfully deleted from checkout",deleted)
         }
         else{
@@ -50,7 +51,7 @@ const submitOrderQuee=async(req,res)=>{
         if(ordered){
             const deletedQuee=await checkoutQuee.deleteOne({queeId});
             console.log("we have sucesfully deleted from checkoutQuee",deletedQuee)
-            res.status(200)
+            res.status(200).json({"message":"order sucessfully submitted"})
         }
         else{
             console.log("unable to create  orders from checkoutQuee")
