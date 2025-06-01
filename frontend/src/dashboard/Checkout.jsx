@@ -16,7 +16,7 @@ function Checkout() {
 }, []);
 
   async function getCart() {
-    const reciveData = await fetch("https://foodorder-production-7583.up.railway.appa/getCart", { credentials: "include" });
+    const reciveData = await fetch("https://foodorder-production-7583.up.railway.app/getCart", { credentials: "include" });
     const response = await reciveData.json();
     setCheckout(response.result);
     setRole(response.role)
