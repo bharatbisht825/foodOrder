@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 const app=express()
 app.use(express.json())
 app.use(cors({
-  origin: 'http://localhost:5173', // frontend origin
+  origin: 'https://food-order-puce-chi.vercel.app', // frontend origin
   credentials: true, // 👈 important: allows cookies to be sent
 }));
 app.use(cookieParser())
