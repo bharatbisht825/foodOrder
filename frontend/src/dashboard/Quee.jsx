@@ -11,7 +11,7 @@ function Quee() {
     getQueeData()
   },[])
   async function getQueeData(){
-       const queeData= await fetch("https://foodorder-8uv3.onrender.com/getQuee",{
+       const queeData= await fetch("https://foodorder-production-7583.up.railway.app/getQuee",{
         credentials:"include",
        })
        const parsedData=await queeData.json()

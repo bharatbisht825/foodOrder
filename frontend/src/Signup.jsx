@@ -14,7 +14,7 @@ function Signup() {
     console.log(name,email,country,password,role)
 
     try {
-      const res = await fetch('https://foodorder-8uv3.onrender.com/register', {
+      const res = await fetch('https://foodorder-production-7583.up.railway.app/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

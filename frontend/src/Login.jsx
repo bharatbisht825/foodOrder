@@ -10,7 +10,7 @@ function Login() {
     e.preventDefault();
     console.log(email,password)
     try {
-      const response = await fetch('https://foodorder-8uv3.onrender.com/login', {
+      const response = await fetch('https://foodorder-production-7583.up.railway.app/login', {
         method: 'POST',
         credentials: 'include', // important to send cookies
         headers: {

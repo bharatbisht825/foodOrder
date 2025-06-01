@@ -16,7 +16,7 @@ function Checkout() {
 }, []);
 
   async function getCart() {
-    const reciveData = await fetch("https://foodorder-8uv3.onrender.com/getCart", { credentials: "include" });
+    const reciveData = await fetch("https://foodorder-production-7583.up.railway.app//getCart", { credentials: "include" });
     const response = await reciveData.json();
     setCheckout(response.result);
     setRole(response.role)
@@ -31,7 +31,7 @@ const gstAmount = checkout.reduce((acc, order) => acc + (Number(order.qty) * Num
 
   async function addToQuee(){
        const obj= {orderFor:name, cart:checkout, total:totalAmount, address:address }
-       const sendToQuee= await fetch("https://foodorder-8uv3.onrender.com/addQuee",{
+       const sendToQuee= await fetch("https://foodorder-production-7583.up.railway.app/addQuee",{
         method:"POST",
         credentials:"include",
         headers:{

@@ -5,7 +5,7 @@ const Orders = () => {
   const [role,setRole]=useState("")
   useEffect(()=>{getOrder()},[])
   async function getOrder(params) {
-    const orderData=await fetch("https://foodorder-8uv3.onrender.com/getOrder",{credentials:"include"})
+    const orderData=await fetch("https://foodorder-production-7583.up.railway.app/getOrder",{credentials:"include"})
     const parsedData= await orderData.json()
     console.log(parsedData)
     setOrders(parsedData.orderData)
@@ -14,7 +14,7 @@ const Orders = () => {
 
 
   async function delOrder(_id) {
-    const deleteOrder=await fetch("https://foodorder-8uv3.onrender.com/delOrder",{
+    const deleteOrder=await fetch("https://foodorder-production-7583.up.railway.app/delOrder",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"

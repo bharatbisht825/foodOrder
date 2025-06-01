@@ -6,7 +6,7 @@ function Dashboard() {
   const [dishes,setDishes]=useState([])
   const [role,setRole]=useState("")
   async function getDishes(rId){
-    const dishes=await fetch(`https://foodorder-8uv3.onrender.com/getDishes/${rId}`,{credentials:"include"})
+    const dishes=await fetch(`https://foodorder-production-7583.up.railway.app/getDishes/${rId}`,{credentials:"include"})
     const parsed= await dishes.json()
     console.log(parsed)
     if(parsed){setDishes(parsed)}
@@ -16,7 +16,7 @@ function Dashboard() {
     
     async function getRestaurant(){
         console.log("fetching restaurant")
-          const restaurantData=await fetch("https://foodorder-8uv3.onrender.com/restaurant",{credentials:"include"})
+          const restaurantData=await fetch("https://foodorder-production-7583.up.railway.app/restaurant",{credentials:"include"})
           const parsed= await restaurantData.json()
           console.log(parsed)
           setRestaurant(parsed.simplified);setRole(parsed.role)
@@ -37,7 +37,7 @@ function Dashboard() {
     },
       body:JSON.stringify(dish)
     }
-    const sendData=await fetch("https://foodorder-8uv3.onrender.com/addCart",payload)
+    const sendData=await fetch("https://foodorder-production-7583.up.railway.app/addCart",payload)
     const response=await sendData.json()
     if(sendData.ok){
       alert("sucessfully added to cart",response)
@@ -56,7 +56,7 @@ function Dashboard() {
     },
       body:JSON.stringify(dish)
     }
-    const sendData=await fetch("https://foodorder-8uv3.onrender.com/delCart",payload)
+    const sendData=await fetch("https://foodorder-production-7583.up.railway.app/delCart",payload)
     const response=await sendData.json()
     if(sendData.ok){
       alert("sucessfully removed from cart",response)
