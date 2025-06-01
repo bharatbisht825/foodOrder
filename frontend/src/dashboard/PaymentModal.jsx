@@ -31,6 +31,7 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
   }
 
   const orderCart= async (total,type)=>{
+
     const submitOrder=fetch("https://foodorder-production-7583.up.railway.app/order",{
         method:"POST",
         credentials:"include",
@@ -90,9 +91,9 @@ function PaymentModal({ onSubmit, onClose,total,to,from,queeId,role}) {
         {payments.map((method) =>
           method.enable ? (
             <button
-                onClick={()=>{
-                    from=="checkout"?orderCart(total,method.type):orderQuee(method.type);
-                    onSubmit()
+                onClick={async ()=>{
+                    from=="checkout"?await orderCart(total,method.type):await orderQuee(method.type);
+                    
 
                      
                 }}
