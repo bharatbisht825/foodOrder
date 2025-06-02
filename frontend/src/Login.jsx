@@ -62,6 +62,10 @@ function Login() {
         >
           Login
         </button>
+         <button
+         onClick={()=>navigate("/signup")}
+          className="bg-blue-500 text-white w-full py-2 rounded hover:bg-blue-600"
+        >Sign Up</button>
       </form>
     </div>
   );
