@@ -13,6 +13,7 @@ const submitOrder=async(req,res)=>{
     const checkoutData= await checkout.findOne({email}) 
     if(checkoutData){
         const ordered= await order.create({
+            country:decoded.country,
             clientEmail:to,
             cart:checkoutData.cart,
             paymentMethod,
@@ -20,7 +21,6 @@ const submitOrder=async(req,res)=>{
         ) 
         if(ordered){
             const deleted=await checkout.deleteOne({email});
-            res.status(200).json({"message":"order sucessfully submitted"})
             console.log("we have sucesfully deleted from checkout",deleted)
         }
         else{
@@ -43,6 +43,7 @@ const submitOrderQuee=async(req,res)=>{
     const queeData= await checkoutQuee.findOne({queeId}) 
     if(queeData){
         const ordered= await order.create({
+            country:decoded.country,
             clientEmail:queeData.orderFor,
             cart:queeData.cart,
             paymentMethod,
@@ -51,7 +52,7 @@ const submitOrderQuee=async(req,res)=>{
         if(ordered){
             const deletedQuee=await checkoutQuee.deleteOne({queeId});
             console.log("we have sucesfully deleted from checkoutQuee",deletedQuee)
-            res.status(200).json({"message":"order sucessfully submitted"})
+            res.status(200)
         }
         else{
             console.log("unable to create  orders from checkoutQuee")
@@ -69,7 +70,7 @@ const getOrders=async(req,res)=>{
     const token=req.cookies.token
     const decoded=jwt.decode(token)
     const role=decoded.role
-    const orderData= await order.find()
+    const orderData= await order.find({country:decoded.country})
     console.log(orderData)
     res.status(200).json({orderData,role})
 

@@ -30,6 +30,10 @@ const totalAmount = checkout.reduce((acc, order) => acc + Number(order.qty) * Nu
 const gstAmount = checkout.reduce((acc, order) => acc + (Number(order.qty) * Number(order.price) * 5) / 100, 0).toFixed(2);
 
   async function addToQuee(){
+     if(name=="" || address==""){
+        alert("Please enter address aand name")
+        return
+      }
        const obj= {orderFor:name, cart:checkout, total:totalAmount, address:address }
        const sendToQuee= await fetch("https://foodorder-production-7583.up.railway.app/addQuee",{
         method:"POST",
